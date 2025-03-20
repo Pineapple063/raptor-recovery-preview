@@ -1,0 +1,145 @@
+.services-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.services-header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 200px;
+    background-color: #FBB721;
+    font-size: clamp(1.5rem, 7vw, 3rem);
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 2rem;
+}
+
+.towing-service-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.service-slider {
+    display: flex;
+    flex-direction: column;
+    border-radius: 1rem;
+}
+
+.service-slider-title {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+
+    font-size: clamp(1.5rem, 7vw, 3rem);
+    font-weight: 700;
+    color: #FBB721;
+}
+
+.service-slider-content {
+    display: grid;
+}
+
+
+
+.service-slider-image img{
+    width: 80%;
+    height: 200px;
+    margin-inline: auto;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 0.5s ease-in-out, transform 0.5s ease-in-out;
+
+}
+
+.service-slider-image img.active {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.service-slider-text-container {
+    position: relative;
+    overflow: hidden; /* Prevents overflow when slides are transitioning */
+    padding-inline: 2rem;
+}
+
+.service-slider-text {
+    position: absolute;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0;
+    transform: translateX(20px);
+    transition: all 0s ease;
+    /* other styling as needed */
+}
+
+.service-slider-text.active {
+    position: relative;
+    opacity: 1;
+    transform: translateX(0);
+    transition: all 0.3s ease;
+}
+
+.service-slider-navigation {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-block: 2rem;
+}
+
+.service-slider-navigation-dot {
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+    background-color: #FFF;
+    margin-inline: 0.5rem;
+    cursor: pointer;
+}
+
+.service-slider-navigation-dot.active {
+    background-color: #FBB721;
+}
+
+@media (max-width: 1024px) { 
+    .service-slider {
+        display: flex;
+        background: #05296a;
+        flex-direction: column;
+        width: 90dvw;
+        margin-inline: auto;
+    }
+
+    .service-slider-content {
+        display: grid;
+        grid-template-rows: repeat(2, auto);
+        color: #fff;
+    }
+
+    .service-slider-image {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+    }
+
+    .service-slider-image img{
+        width: 80%;
+        max-width: 400px;
+        margin-inline: auto;
+        height: auto;
+    }
+
+}
+
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateX(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+}
