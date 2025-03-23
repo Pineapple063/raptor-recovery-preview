@@ -105,7 +105,7 @@ function NavItem(props) {
     }
 
     const link = getLink();
-    console.log("props: ", props)
+    
     return (
         <Link to={link}>
             <li 

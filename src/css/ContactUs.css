@@ -245,7 +245,7 @@ body {
     padding-left: 10px;
   }
   
-  .new_home_web .send:hover {
+  .new_home_web .send-message-button:hover {
     background-image: initial;
     background-position-x: initial;
     background-position-y: initial;
@@ -257,11 +257,11 @@ body {
     background-clip: initial;
   }
   
-  .new_home_web .send {
+  .new_home_web .send-message-button {
     font-size: 18px;
     color: white;
     font-weight: 600;
-    background-color: #ea5541;
+    background-color: #05296a;
     width: 80%;
     text-align: center;
     padding-top: 15px;
@@ -272,6 +272,8 @@ body {
     margin-right: 0px;
     margin-bottom: 0px;
     margin-left: 0px;
+    border: none;
+    cursor: pointer;
     border-top-left-radius: 0px;
     border-top-right-radius: 0px;
     border-bottom-right-radius: 0px;
@@ -479,9 +481,9 @@ body {
   }
   
   .new_home_web .orangeLine {
-    height: 10px;
+    height: 3px;
     width: 160px;
-    background-color: #eb604d;
+    background-color: #FBB721;
   }
   
   .new_home_web .topHead {
@@ -504,6 +506,20 @@ body {
     right: 0px;
     top: auto;
     bottom: 0px;
+  }
+
+  .error-confirm-button {
+    background-color: #05296a;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
   }
   
   @media (max-width: 1024px) {
@@ -616,7 +632,7 @@ body {
       flex-wrap: wrap;
     }
   
-    .new_home_web .send {
+    .new_home_web .send-message-button {
       padding-top: 15px;
       padding-right: 0px;
       padding-bottom: 15px;
@@ -638,7 +654,7 @@ body {
       line-height: 35px;
     }
   
-    .new_home_web .send {
+    .new_home_web .send-message-button {
       width: 100%;
       max-width: 250px;
     }

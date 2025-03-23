@@ -1,8 +1,50 @@
+import { useState } from "react"
 import Header from "../components/Header"
 import Footer from "../components/Footer"
 import "../css/ContactUs.css"
+import Swal from "sweetalert2"
+import withReactContent from "sweetalert2-react-content"
 
 const ContactUs = () => {
+    const MySwal = withReactContent(Swal)
+    const [firstName, setFirstName] = useState("")
+    const [lastName, setLastName] = useState("")
+    const [email, setEmail] = useState("")
+    const [phoneNumber, setPhoneNumber] = useState("")
+    const [message, setMessage] = useState("")
+
+    const showErrorMessage = (title, message) => {
+        MySwal.fire({
+            title: title,
+            text: message,
+            icon: "error",
+            showConfirmButton: true,
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: "error-confirm-button"
+            }
+        })
+    }
+
+
+    const sendMessage = (e) => {
+        e.preventDefault()
+
+        if (phoneNumber === "" && email === "") {
+            showErrorMessage("Phone Number or Email Required", "Please enter a valid phone number or email address")
+            return
+        }
+
+        if (message === "") {
+            showErrorMessage("Message Required", "Please enter a message")
+            return
+        }
+        
+        
+    }
+
+
+
     return (
         <>
             <Header />
@@ -11,12 +53,12 @@ const ContactUs = () => {
                 <div className="responsive-container-block big-container">
                     <div className="responsive-container-block textContainer">
                     <div className="topHead">
-                        <p className="text-blk heading">Contact<span className="orangeText"> Form</span></p>
+                        <p className="text-blk heading">Contact Us</p>
                         <div className="orangeLine" id="w-c-s-bgc_p-2-dm-id">
                         </div>
                     </div>
                     <p className="text-blk subHeading">
-                        Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna al iqua.
+                    Need help on the road? Get in touch with us. We're here 24/7 to get you moving again.
                     </p>
                     </div>
                     <div className="responsive-container-block container">
@@ -26,25 +68,25 @@ const ContactUs = () => {
                             <div className="responsive-container-block">
                             <div className="left4">
                                 <div className="responsive-cell-block wk-ipadp-6 wk-tab-12 wk-mobile-12 wk-desk-6" id="i10mt-2">
-                                <input className="input" id="ijowk-2" name="FirstName" placeholder="First Name"/>
+                                <input className="input" id="ijowk-2" name="FirstName" placeholder="First Name" onChange={(e) => setFirstName(e.target.value)}/>
                                 </div>
                                 <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                                <input className="input" id="indfi-2" name="Last Name" placeholder="Last Name"/>
+                                <input className="input" id="indfi-2" name="Last Name" placeholder="Last Name" onChange={(e) => setLastName(e.target.value)}/>
                                 </div>
                                 <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12">
-                                <input className="input" id="ipmgh-2" name="Email" placeholder="Email Address"/>
+                                <input className="input" id="ipmgh-2" name="Email" placeholder="Email Address" onChange={(e) => setEmail(e.target.value)}/>
                                 </div>
                                 <div className="responsive-cell-block wk-desk-6 wk-ipadp-6 wk-tab-12 wk-mobile-12 lastPhone">
-                                <input className="input" id="imgis-2" name="PhoneNumber" placeholder="Phone Number"/>
+                                <input className="input" id="imgis-2" name="PhoneNumber" placeholder="Phone Number" onChange={(e) => setPhoneNumber(e.target.value)}/>
                                 </div>
                             </div>
                             <div className="responsive-cell-block wk-tab-12 wk-mobile-12 wk-desk-12 wk-ipadp-12" id="i634i-2">
-                                <textarea className="textinput" id="i5vyy-2" placeholder="Message"></textarea>
+                                <textarea className="textinput" id="i5vyy-2" placeholder="Message" onChange={(e) => setMessage(e.target.value)}></textarea>
                             </div>
                             </div>
-                            <a class="send" href="#" id="w-c-s-bgc_p-1-dm-id">
+                            <button className="send-message-button" onClick={sendMessage} id="w-c-s-bgc_p-1-dm-id">
                             Send
-                            </a>
+                            </button>
                         </div>
                         </form>
                     </div>
