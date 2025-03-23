@@ -74,7 +74,24 @@ body {
 
 }
 
+.whatsapp-booking-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  bottom: 1rem;
+  right: 1rem;
+  z-index: 99999999;
 
+}
+
+.whatsapp-icon-background {
+  position: absolute;
+  background-color: #fff;
+  width: 80%;
+  height: 80%;
+  z-index: -1;
+}
 
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }

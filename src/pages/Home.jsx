@@ -4,6 +4,7 @@ import { IoIosStar } from "react-icons/io";
 import { GiTowTruck } from "react-icons/gi";
 import { PiBuildingOffice } from "react-icons/pi";
 import { RiTeamLine } from "react-icons/ri";
+import { FaSquareWhatsapp } from "react-icons/fa6";
 import '../css/Home.css';
 import Header  from "../components/Header";
 import CountUp from "../components/CountUp";
@@ -33,6 +34,8 @@ export default function Home({ loading }) {
     const [showSubText, setShowSubText] = useState(false);
     const headerRef = useRef(null);
     const heroGridRef = useRef(null);
+
+    const waStyle = { background : "#fff"}
 
     useEffect(() => {
         console.log("loading home: ", loading);
@@ -85,7 +88,9 @@ export default function Home({ loading }) {
     //         }, 1200);
     //     }
     // }, [loadingComplete]);
-    
+    function openWhatsApp() {
+        window.open('https://wa.me/353871200000', '_blank');
+    }
 
     return(
         <>
@@ -266,6 +271,10 @@ export default function Home({ loading }) {
                     description="We offer competitive cash payouts for non-running or damaged vehicles. Our hassle-free service includes free towing, so you don’t have to worry about a thing."
                     />
                 </div>
+            </div>
+            <div className="whatsapp-booking-container">
+                <div className="whatsapp-icon-background"></div>
+                <FaSquareWhatsapp onClick={openWhatsApp} color="#25d366" size={64}/>
             </div>
             <div className="pre-footer-triangle">
                 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 100" preserveAspectRatio="none">
