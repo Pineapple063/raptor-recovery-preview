@@ -110,10 +110,16 @@ body {
 
 .about-us-list {
   padding-inline-start: 1rem;
+  
+}
+
+.about-us-list-item {
+  margin-bottom: 1rem;
 }
 
 .about-us-list-item span {
   font-weight: 800;
+  
 }
 
 @-webkit-keyframes spin {
