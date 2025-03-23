@@ -38,7 +38,7 @@ export default function Home({ loading }) {
     const waStyle = { background : "#fff"}
 
     useEffect(() => {
-        console.log("loading home: ", loading);
+        
         setLoadingSpinnerActive(loading);
         
     }, [loading]);
@@ -61,12 +61,11 @@ export default function Home({ loading }) {
 
     useEffect(() => {
         const updateHeight = () => {
-            console.log("Updating height");
+            
             const screenHeight = window.innerHeight;
             const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
             const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
-            console.log("Screen height:", screenHeight);
-            console.log("Header height:", headerHeight);
+            
             const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
             setHeroHeight(newHeight);
         };

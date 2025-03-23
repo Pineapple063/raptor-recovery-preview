@@ -4,6 +4,7 @@ import Home from "./pages/Home";
 import Services from './pages/Services';
 import FAQs from './pages/FAQs';
 import ContactUs from './pages/ContactUs';
+import AboutUs from './pages/AboutUs';
 import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
@@ -47,6 +48,7 @@ function App() {
           <Route path="/services/:serviceType" element={<Services loading={loading}/>} />
           <Route path="/faq" element={<FAQs loading={loading}/>} />
           <Route path="/contact-us" element={<ContactUs />} />
+          <Route path="/about-us" element={<AboutUs />} />
         </Routes>
       </Router>
     </>

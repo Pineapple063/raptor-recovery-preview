@@ -93,6 +93,29 @@ body {
   z-index: -1;
 }
 
+.about-us-container {
+  padding-inline: 2rem;
+}
+
+.about-us-title {
+  text-align: left;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+}
+
+.about-us-text {
+  margin-bottom: 3rem;
+}
+
+.about-us-list {
+  padding-inline-start: 1rem;
+}
+
+.about-us-list-item span {
+  font-weight: 800;
+}
+
 @-webkit-keyframes spin {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }

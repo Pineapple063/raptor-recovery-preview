@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 
 
 const HomeService = ({image, title, description, containerClass}) => {
-    console.log("title", title)
+    
     const getLink = () => {
         switch(title) {
             case "Towing":
@@ -30,7 +30,7 @@ const HomeService = ({image, title, description, containerClass}) => {
         }
     }
     const link = getLink();
-    console.log("link", link)
+    
 
     
     return (
