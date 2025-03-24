@@ -34,12 +34,20 @@ function App() {
     };
   }, []);
 
-  console.log("loading: ", loading);
+  useEffect(() => {
+    if (loading) {
+      document.body.classList.add('no-scroll');
+    } else {
+      document.body.classList.remove('no-scroll');
+    }
+  }, [loading]);
+
+
   return (
     <>
       
       <Router>
-        {/* <RouteChangeHandler setLoading={setLoading} /> */}
+        <RouteChangeHandler setLoading={setLoading} />
         <FullScreenLoader loading={loading}/>
         <ScrollToHashElement />
         <Routes>
@@ -55,24 +63,24 @@ function App() {
   )
 }
 
-// function RouteChangeHandler({ setLoading }) {
-//   const location = useLocation();
+function RouteChangeHandler({ setLoading }) {
+  const location = useLocation();
 
-//   useEffect(() => {
-//     setLoading(true); // Show loading on route change
+  useEffect(() => {
+    setLoading(true); // Show loading on route change
 
-//     const minLoadingTime = 1000; // 1 second
+    const minLoadingTime = 1000; // 1 second
 
 
-//     const timeout = setTimeout(() => {
-//       setLoading(false); // Hide loading after a delay
-//     }, minLoadingTime);
+    const timeout = setTimeout(() => {
+      setLoading(false); // Hide loading after a delay
+    }, minLoadingTime);
 
-//     return () => clearTimeout(timeout);
-//   }, [location.pathname, setLoading]);
+    return () => clearTimeout(timeout);
+  }, [location.pathname, setLoading]);
 
-//   return null;
-// }
+  return null;
+}
 
 
 export default App
