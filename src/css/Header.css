@@ -28,7 +28,7 @@
     transition: all 0.3s ease;
     position: sticky;
     width: 100%;
-    z-index: 1000;
+    z-index: 10000;
     background-color: #fff;
     box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
     box-shadow: rgba(60, 64, 67, 0.3) 0px 1px 2px 0px, rgba(60, 64, 67, 0.15) 0px 2px 6px 2px;
@@ -312,7 +312,9 @@ a {
     padding: 0;
     text-align: left;
     width: 100%;
-    gap: 0.3rem;
+
+    height: 100%;
+    justify-content: space-between;
   }
 
   .navbar-nav.show {
@@ -404,5 +406,43 @@ a {
     font-weight: 600;
     margin: 0;
     
+  }
+
+  .nav-submenu{
+    display: flex;
+    cursor: auto;
+    list-style: none;
+    position: absolute;
+    background: #05296a;
+    left: 50%;
+    top: 50%;
+    width: calc(100% + 32px);
+    transform: translate(100%, calc(-25% + 32px)) scaleY(1);
+    flex-direction: column;
+    align-items: flex-start;
+
+    gap: 12px;
+    opacity: 1;
+
+    transition: opacity 0.3s ease, transform 0.3s ease;
+    z-index: 10000;
+    border-radius: 0 0 4px 4px;
+    box-shadow: none;
+  }
+
+  .nav-submenu.open {
+    opacity: 1;
+    transform: translate(-50%, -45px) scaleY(1);
+  }
+
+  .chevron-left {
+    cursor: pointer;
+    color: #fff;
+    transition: all 0.2s ease;
+  }
+
+  .chevron-left:hover {
+    cursor: pointer;
+    color: #FBB721;
   }
 }

@@ -2,7 +2,8 @@ import { useState, useEffect, useRef } from "react";
 import { Siren, Handshake, Phone, Check } from 'lucide-react';
 import { IoIosStar } from "react-icons/io";
 import { GiTowTruck } from "react-icons/gi";
-import { PiBuildingOffice } from "react-icons/pi";
+import { FiClock } from "react-icons/fi";
+import { PiThumbsUpBold } from "react-icons/pi";
 import { RiTeamLine } from "react-icons/ri";
 import { FaSquareWhatsapp } from "react-icons/fa6";
 import '../css/Home.css';
@@ -170,23 +171,33 @@ export default function Home({ loading }) {
                 <div className="about-icons-overlay"></div>
                 <div className="about-icons-grid">
                     <div className="about-icons-grid-item">
-                        <IoIosStar color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={30}></CountUp>
-                        <span className="about-icons-grid-item-sub-title">Years of Experience</span>
+                        <div className="about-icons-grid-item-icons">
+
+                            <IoIosStar color="#FBB721" size={32}/>
+                            <IoIosStar color="#FBB721" size={32}/>
+                            <IoIosStar color="#FBB721" size={32}/>
+                            <IoIosStar color="#FBB721" size={32}/>
+                            <IoIosStar color="#FBB721" size={32}/>
+
+                        </div>
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={5}></CountUp>
+                        <span className="about-icons-grid-item-sub-title">Star Service</span>
                     </div>
                     <div className="about-icons-grid-item">
-                        <PiBuildingOffice color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={74}></CountUp>
-                        <span className="about-icons-grid-item-sub-title">Offices Worldwide</span>
+                        <PiThumbsUpBold color="#FBB721" size={64}/>
+                        
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={100} afterText={"%"}></CountUp>
+                        
+                        <span className="about-icons-grid-item-sub-title">Customer Satisfaction</span>
                     </div>
                     <div className="about-icons-grid-item">
-                        <GiTowTruck color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={3720}></CountUp>
-                        <span className="about-icons-grid-item-sub-title">Vehicles Towed</span>
+                        <FiClock color="#FBB721" size={64}/>
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={"24/7"}></CountUp>
+                        <span className="about-icons-grid-item-sub-title">Service Availability</span>
                     </div>
                     <div className="about-icons-grid-item">
                         <RiTeamLine color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={874}></CountUp>
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={4}></CountUp>
                         <span className="about-icons-grid-item-sub-title">Staff in Team</span>
                     </div>
                 </div>

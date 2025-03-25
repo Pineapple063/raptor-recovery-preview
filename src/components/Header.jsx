@@ -11,9 +11,36 @@ function Header() {
 
 
     const [menuOpen, setMenuOpen] = useState(false);
+    const [menuHeight, setMenuHeight] = useState(0);
+    const [isDesktop, setIsDesktop] = useState(window.innerWidth > 1024);
 
 
+    useEffect(() => {
+        const handleResize = () => {
+            
+            setIsDesktop(window.innerWidth > 1024);
+            if (!isDesktop) {
 
+                setMenuOpen(false);
+                let maxHeight = 0;
+                const subMenuHeight = document.querySelectorAll('.nav-submenu');
+                for (let i = 0; i < subMenuHeight.length; i++) {
+                    const height = subMenuHeight[i].offsetHeight;
+                    console.log(height);
+                    if (height > maxHeight) {
+                        maxHeight = height;
+                        setMenuHeight(height);
+                    }
+                }
+            }
+            
+        };
+        
+
+        window.addEventListener("resize", handleResize);
+        handleResize();
+        return () => window.removeEventListener("resize", handleResize);
+    }, []);
 
     const toggleMenu = () => {
         if (!menuOpen) {
@@ -40,9 +67,9 @@ function Header() {
                         </span>
                     </button>
                     <div onClick={toggleMenu} className={`navbar-menu-overlay ${menuOpen ? 'show' : ''}`}></div>
-                    <div className={`navbar-menu ${menuOpen ? 'show' : ''}`}>
+                    <div className={`navbar-menu ${menuOpen ? 'show' : ''}`} style={!isDesktop ? {height: `${menuHeight+32}px`} : {}}>
                         <ul className={`navbar-nav flex-grow-1 ${menuOpen ? 'show' : ''}`}>
-                            <NavDropdownItem Name="Services" Items={["Towing", "Jump Start Service", "Puncture Repair & Spare Wheel Fitting", "Fuel Delivery & Wrong Fuel Removal", "Lockout Assistance", "Battery Replacement", "Diagnostics & Repair", "Winching", "Insurance & Warranty Assistance", "Scrap Car Buying"]}/>
+                            <NavDropdownItem MenuOpen={menuOpen} Name="Services" Items={["Towing", "Jump Start Service", "Puncture Repair & Spare Wheel Fitting", "Fuel Delivery & Wrong Fuel Removal", "Lockout Assistance", "Battery Replacement", "Diagnostics & Repair", "Winching", "Insurance & Warranty Assistance", "Scrap Car Buying"]}/>
                             <NavItem Name="Areas Served"/>
                             <NavItem Name="Pricing"/>
                             <NavItem Name="Contact Us"/>

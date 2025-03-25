@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useLayoutEffect } from 'react'
 import { HashRouter as Router, Routes, Route, useLocation, Navigate } from "react-router-dom";
 import Home from "./pages/Home";
 import Services from './pages/Services';
@@ -66,7 +66,7 @@ function App() {
 function RouteChangeHandler({ setLoading }) {
   const location = useLocation();
 
-  useEffect(() => {
+  useLayoutEffect(() => {
     setLoading(true); // Show loading on route change
 
     const minLoadingTime = 1000; // 1 second
