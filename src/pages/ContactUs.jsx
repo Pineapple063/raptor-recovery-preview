@@ -92,7 +92,7 @@ const ContactUs = () => {
 
         setMessageSending(true)
         try {
-            const response = await fetch("http://localhost:8080/send-message", {
+            const response = await fetch("http://66.241.124.19:8080/send-message", {
                 method: "POST",
                 headers: {
                     "Content-Type": "application/json"
