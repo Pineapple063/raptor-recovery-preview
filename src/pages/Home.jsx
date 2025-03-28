@@ -197,7 +197,7 @@ export default function Home({ loading }) {
                     </div>
                     <div className="about-icons-grid-item">
                         <RiTeamLine color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={4}></CountUp>
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={6}></CountUp>
                         <span className="about-icons-grid-item-sub-title">Staff in Team</span>
                     </div>
                 </div>

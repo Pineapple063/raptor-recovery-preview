@@ -13,7 +13,7 @@ const AboutUs = () => {
         <div className="about-us-container">
             <div className='about-us-title'>Who We Are</div>
             <div className='about-us-text'>
-                Welcome to Raptor Recovery, your trusted partner for reliable towing and roadside assistance services. With years of experience serving our community, we understand that vehicle troubles can happen at the most inconvenient times. That's why our mission is simple: to provide fast, dependable, and professional support when you need it most.
+            Welcome to Raptor Recovery, your trusted partner for fast and reliable towing, roadside assistance, and vehicle transport. We know vehicle troubles can happen at the worst times, that’s why we’re committed to getting you back on the road quickly and safely, 365 days a year, including all major holidays.
             </div>
             <div className='about-us-title'>Our Story</div>
             <div className='about-us-text'>
@@ -22,17 +22,17 @@ const AboutUs = () => {
             <div className='about-us-title'>Why Choose Us</div>
             <div className='about-us-text'>
                 <ul className='about-us-list'>
-                    <li className='about-us-list-item'><span>Fast Response Time:</span> We value your time and prioritize getting to you quickly.</li>
-                    <li className='about-us-list-item'><span>24/7 Availability:</span>  Day or night, rain or shine, we are just a call away.</li>
-                    <li className='about-us-list-item'><span>Professional Team:</span> Our certified drivers are trained to handle everything from light-duty to heavy-duty towing.</li>
-                    <li className='about-us-list-item'><span>Comprehensive Services:</span> Whether you need towing, roadside assistance, accident recovery, or vehicle transport, we've got you covered.</li>
+                    <li className='about-us-list-item'><span>Rapid Response:</span> We prioritize getting to you as fast as possible.</li>
+                    <li className='about-us-list-item'><span>24/7 Availability:</span>  Day or night, rain or shine, including holidays.</li>
+                    <li className='about-us-list-item'><span>Expert Team:</span> Our trained professionals handle light to medium duty towing with care.</li>
+                    <li className='about-us-list-item'><span>Comprehensive Services:</span> From towing and roadside assistance to goods transport, we’ve got you covered.</li>
                 </ul>
             </div>
             <div className='about-us-title'>Our Commitment</div>
             <div className='about-us-text'>
-                At Raptor Recovery, we treat every customer like family. Our commitment goes beyond just towing vehicles; it's about ensuring your safety and peace of mind. We strive to build lasting relationships by delivering top-notch services with transparency and care.
-
-                If you find yourself stranded or in need of reliable towing services, don't hesitate to reach out. Let us turn a frustrating experience into a seamless one.
+                At Raptor Recovery, we treat every customer like family. We go beyond towing. We ensure your safety and peace of mind. Our goal is to make a frustrating situation seamless with transparent, top tier service.
+                <br/><br/>
+                Stranded? Need a tow? <a href="tel:+353 87 120 0000"><span style={{fontWeight: "bold", cursor: "pointer"}}>Call us</span></a> now, and let’s get you moving again.
             </div>
         </div>
         <div className="pre-footer-triangle">

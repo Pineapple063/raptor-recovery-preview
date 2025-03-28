@@ -15,7 +15,6 @@ function NavDropdownItem(props) {
 
     useEffect(() => {
         if (props.MenuOpen === false) {
-            console.log("123")
             setMenuOpen(false);
         }
     }, [props.MenuOpen]);
@@ -49,8 +48,6 @@ function NavDropdownItem(props) {
         setIsSubmenuHovered(false);
         }, 300); // Adjust delay as needed
     };
-
-    console.log(menuOpen);
 
     return (
         <li 
@@ -103,7 +100,7 @@ function NavDropdownItem(props) {
                 <ul 
                 className={`nav-submenu ${menuOpen ? "open" : ""}`}
                 >
-                <ChevronLeft className="chevron-left" onClick={(e) => {e.stopPropagation();console.log("clicked");setMenuOpen(false)}}/>
+                <ChevronLeft className="chevron-left" onClick={(e) => {e.stopPropagation();setMenuOpen(false)}}/>
                 {props.Items.map((item, index) => (
                     <li className="nav-submenu-item" key={index}>
                         <Link className="nav-submenu-link" asp-area="" to={`/services/${item.replace(/\s+/g, "-").replace("&", "and").toLowerCase()}`}>{item}</Link>

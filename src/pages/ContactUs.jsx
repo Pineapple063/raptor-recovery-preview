@@ -12,6 +12,7 @@ const ContactUs = () => {
     const [email, setEmail] = useState("")
     const [phoneNumber, setPhoneNumber] = useState("")
     const [message, setMessage] = useState("")
+    const [messageSending, setMessageSending] = useState(false)
 
     const showErrorMessage = (title, message) => {
         MySwal.fire({
@@ -26,18 +27,108 @@ const ContactUs = () => {
         })
     }
 
+    const showSuccessMessage = (message) => {
+        MySwal.fire({
+            title: "Success",
+            text: message,
+            icon: "success",
+            showConfirmButton: true,
+            buttonsStyling: false,
+            customClass: {
+                confirmButton: "success-confirm-button"
+            }
+        })
+    }
 
-    const sendMessage = (e) => {
+    
+    const clearForm = () => {
+        setFirstName("")
+        setLastName("")
+        setEmail("")
+        setPhoneNumber("")
+        setMessage("")
+        const inputs = document.querySelectorAll("input")
+        inputs.forEach(input => input.value = "")
+        const textarea = document.querySelector("textarea")
+        textarea.value = ""
+    }
+
+    const sendMessage = async (e) => {
         e.preventDefault()
 
-        if (phoneNumber === "" && email === "") {
+        const trimmedFirstName = firstName.trim()
+        const trimmedLastName = lastName.trim()
+        const trimmedEmail = email.trim()
+        const trimmedPhoneNumber = phoneNumber.trim().replace(/\D/g, '');
+        const trimmedMessage = message.trim()
+
+        if (trimmedPhoneNumber === "" && trimmedEmail === "") {
             showErrorMessage("Phone Number or Email Required", "Please enter a valid phone number or email address")
             return
         }
 
-        if (message === "") {
+        if (trimmedMessage === "") {
             showErrorMessage("Message Required", "Please enter a message")
-            return
+            return;
+        }
+
+        if (trimmedEmail !== "") {
+            const emailRegex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/
+            if (!emailRegex.test(trimmedEmail)) {
+                showErrorMessage("Invalid Email", "Please enter a valid email address")
+                return;
+            }
+        }
+
+        if (trimmedPhoneNumber !== "") {
+            
+            if (trimmedPhoneNumber.length < 7 || trimmedPhoneNumber.length > 20) {
+                showErrorMessage("Invalid Phone Number", "Please enter a valid phone number")
+                return;
+            }
+        }
+
+
+
+        setMessageSending(true)
+        try {
+            const response = await fetch("http://localhost:8080/send-message", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify({
+                    firstName: trimmedFirstName,
+                    lastName: trimmedLastName,
+                    email: trimmedEmail,
+                    phoneNumber: trimmedPhoneNumber,
+                    message: trimmedMessage
+                })
+            })
+
+            if (!response.ok) {
+                setMessageSending(false)
+                throw new Error("Network response was not ok")
+
+            }
+
+            const data = await response.json()
+
+            if (data.status === "success") {
+                setMessageSending(false)
+                showSuccessMessage(data.message)
+                clearForm();
+
+            } else {
+
+                setMessageSending(false)
+                showErrorMessage("Error", "An error occurred while sending the message. Please try again later.")
+            }
+
+        } catch (error) {
+
+            setMessageSending(false)
+            showErrorMessage("Error", "An error occurred while sending the message. Please try again later.")
         }
         
         
@@ -84,9 +175,10 @@ const ContactUs = () => {
                                 <textarea className="textinput" id="i5vyy-2" placeholder="Message" onChange={(e) => setMessage(e.target.value)}></textarea>
                             </div>
                             </div>
-                            <button className="send-message-button" onClick={sendMessage} id="w-c-s-bgc_p-1-dm-id">
-                            Send
-                            </button>
+                            {messageSending ? <div className="loading-spinner-cover"></div> :
+                            <button className="send-message-button" onClick={sendMessage} id="w-c-s-bgc_p-1-dm-id">Send</button>
+                            }
+                            
                         </div>
                         </form>
                     </div>
@@ -103,5 +195,7 @@ const ContactUs = () => {
         </>
     )
 }
+
+
 
 export default ContactUs

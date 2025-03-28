@@ -521,6 +521,20 @@ body {
     cursor: pointer;
     border-radius: 5px;
   }
+
+  .success-confirm-button {
+    background-color: #05296a;
+    color: white;
+    font-size: 18px;
+    font-weight: 600;
+
+    text-align: center;
+    padding: 15px;
+    margin: 0;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+  }
   
   @media (max-width: 1024px) {
     .new_home_web .responsive-cell-block.wk-tab-12.wk-mobile-12.wk-desk-5.wk-ipadp-10 {

@@ -9,7 +9,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://192.168.0.63:5000', // Flask backend URL
+        target: 'http://localhost:8080', // Flask backend URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '') // Optional: Remove /api prefix if needed
       }

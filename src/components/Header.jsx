@@ -26,7 +26,6 @@ function Header() {
                 const subMenuHeight = document.querySelectorAll('.nav-submenu');
                 for (let i = 0; i < subMenuHeight.length; i++) {
                     const height = subMenuHeight[i].offsetHeight;
-                    console.log(height);
                     if (height > maxHeight) {
                         maxHeight = height;
                         setMenuHeight(height);
