@@ -9,7 +9,7 @@ export default defineConfig({
     host: true,
     proxy: {
       '/api': {
-        target: 'http://66.241.124.19:8080', // backend URL
+        target: 'https://raptor-recovery-backend.fly.dev', // backend URL
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, '')
       }
