@@ -2,7 +2,7 @@ import { useState } from "react"
 import Footer from "../components/Footer"
 import Header from "../components/Header"
 import Question from "../components/Question"
-import '../css/FAQs.css'
+import '../css/Faqs.css'
 
 
 const FAQs = ({ loading }) => {
