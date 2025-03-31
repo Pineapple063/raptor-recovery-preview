@@ -132,10 +132,10 @@ export default function Home({ loading }) {
                 <img className="what-we-offer-image" src={whatWeOffer} alt="What we offer"/>
                 <div className="what-we-offer-content">
                     <span className="what-we-offer-title">WHAT <span className="bold">WE OFFER</span></span>
-                    <span className="what-we-offer-sub-title">EFFECTIVE FLATBED TRANSPORTATION</span>
+                    <span className="what-we-offer-sub-title">EFFECTIVE VEHICLE TRANSPORTATION</span>
                     <div className="color-seperator"></div>
                     
-                    <span className="what-we-offer-paragraph">We provide fast, courteous and inexpensive towing services in New York. We are fully insured and been in business since 1986. We are ready to respond to all your vehicle emergency needs 24 hours a day, seven days a week.</span>
+                    <span className="what-we-offer-paragraph">We provide fast, courteous and inexpensive towing services in Dublin & Wicklow. We are fully insured and ready to respond to all your vehicle emergency needs 24 hours a day, seven days a week.</span>
                     <div className="what-we-offer-list">
                     <div className="color-seperator"></div>
                         <div className="what-we-offer-list-item">
