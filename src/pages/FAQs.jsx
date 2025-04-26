@@ -20,11 +20,11 @@ const FAQs = ({ loading }) => {
             <div className="faqs-grid">
                 <div className="general-questions-container">
                     <div className="faq-title">General</div>
-                    <Question question="What areas do you serve?" answer="We provide towing and roadside assistance services across [Your Service Area]. Contact us to confirm availability in your location." />
+                    <Question question="What areas do you serve?" answer="We provide towing and roadside assistance services across Dublin and Wicklow. Contact us to confirm availability in your location." />
                     <Question question="What are your operating hours?" answer="We are available 24/7, 365 days a year. No matter the time of day or night, we are here to assist you." />
-                    <Question question="How quickly can you arrive at my location?" answer="Our response times vary based on location and traffic, but we strive to reach you within [Estimated Response Time] minutes." />
-                    <Question question="How do I request service?" answer="You can request service by calling us at [Phone Number], using our website contact form, or through our mobile app (if applicable)." />
-                    <Question question="What forms of payment do you accept?" answer="We accept cash, credit/debit cards, and mobile payment options. For insurance-related services, we can bill your provider directly where applicable." />                </div>
+                    <Question question="How quickly can you arrive at my location?" answer="Our response times vary based on location and traffic, but we always aim to get to you as quickly as possible." />
+                    <Question question="How do I request service?" answer="You can request service by calling us at 0871200000, using our website contact form, or emailing us at contact@raptorrecovery.ie" />
+                    <Question question="What forms of payment do you accept?" answer="We accept cash and credit/debit cards. For insurance-related services, we can bill your provider directly where applicable." /></div>
                 <div className="towing-questions-container">
                     <div className="faq-title">Towing</div>    
                     <Question question="What types of vehicles can you tow?" answer="We tow cars, motorcycles, vans, SUVs, light trucks, and small commercial vehicles. For larger vehicles, contact us for availability." />

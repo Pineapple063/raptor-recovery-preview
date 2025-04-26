@@ -1,7 +1,54 @@
+import { useState, useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 
 const HomeService = ({image, title, description, containerClass}) => {
+
+    const elementRef = useRef(null);
+    const [isInView, setIsInView] = useState(false);
+    
+    useEffect(() => {
+        const element = elementRef.current;
+        if (!element) {
+          // Element not rendered yet or component unmounted
+          return;
+        }
+    
+        const observer = new IntersectionObserver(
+          ([entry]) => {
+            // entry.isIntersecting is true when the element enters the viewport
+            // and false when it leaves.
+            setIsInView(entry.isIntersecting);
+    
+            // Optional: If you only want to trigger the animation once
+            // and keep the class, uncomment the line below:
+            if (entry.isIntersecting) {
+               observer.unobserve(element);
+         }
+          },
+          {
+            // Options for the observer
+            // threshold: A number between 0 and 1, indicating the percentage of the element
+            // that must be visible to trigger the callback.
+            // 0 means trigger as soon as even one pixel is visible.
+            // 1 means trigger only when the entire element is visible.
+            threshold: 0.4, // Trigger when 10% of the element is visible
+            // root: The element that is used as the viewport for checking visibility.
+            // Defaults to the browser viewport.
+            // rootMargin: Margin around the root. Can be used to grow or shrink
+            // the area used for intersections. e.g., '10px 20px 30px 40px'
+          }
+        );
+    
+        // Start observing the element
+        observer.observe(element);
+    
+        // Cleanup function: stop observing when the component unmounts
+        return () => {
+          observer.unobserve(element);
+          // or observer.disconnect();
+        };
+      }, []); // Empty dependency array means this effect runs only once after initial render
     
     const getLink = () => {
         switch(title) {
@@ -34,7 +81,7 @@ const HomeService = ({image, title, description, containerClass}) => {
 
     
     return (
-        <div className={`home-service ${containerClass}`}>
+        <div ref={elementRef} className={`home-service ${containerClass} ${isInView ? 'is-visible' : ''}`}>
             <Link to={link}>
                 <div className="service-image-container">
                     <img src={image}/>
