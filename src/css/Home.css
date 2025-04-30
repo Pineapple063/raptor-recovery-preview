@@ -497,4 +497,8 @@
         transform: translateY(0);
         opacity: 1;
     }
+
+    .service-title {
+        font-size: 25px;
+    }
 }
