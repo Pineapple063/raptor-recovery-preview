@@ -63,6 +63,12 @@ export default function Home({ loading }) {
     }, [loadingSpinnerActive]);
     
     useEffect(() => {
+        
+
+
+    }, [])
+
+    useEffect(() => {
         const screenHeight = window.innerHeight;
         const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
         const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
@@ -70,11 +76,6 @@ export default function Home({ loading }) {
         const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
 
         setHeroHeight(newHeight);
-
-
-    }, [])
-
-    useEffect(() => {
         const updateHeight = () => {
             const currentOrientation = getOrientation();
             console.log("co:", currentOrientation);
