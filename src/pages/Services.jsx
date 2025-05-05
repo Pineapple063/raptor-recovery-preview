@@ -15,10 +15,10 @@ const Services = ({ loading }) => {
 
     const towingTitles = ["Reliable & Fast Towing", "24/7 Availability", "Safe & Secure Transport", "Affordable & Transparent Pricing", "Specialized Towing Solutions"];
     const towingTexts = [
-        "Whether your car breaks down, you're in an accident, or you just need a tow, we’ve got you covered. Our team handles everything from light-duty to heavy-duty towing, making sure your vehicle gets where it needs to go safely.", 
+        "Whether your car breaks down, you're in an accident, or you just need a tow, we’ve got you covered. Our team handles everything from light-duty to medium-duty towing, making sure your vehicle gets where it needs to go safely.", 
         "Car troubles don’t follow a schedule, and neither do we. No matter what time it is, day or night, you can count on us to be there when you need a tow.", 
-        "We treat every vehicle like it’s our own. Our tow trucks and equipment are designed to transport your car without any damage, whether it's a standard sedan, an SUV, or even a motorcycle.", 
-        "Nobody likes surprises when it comes to pricing. We keep things simple and upfront, offering fair rates with no hidden fees. Whether you need a quick local tow or something long-distance, we’ll give you a clear estimate before we start.", 
+        "We treat every vehicle like it’s our own. Our tow trucks and equipment are designed to transport your car without any damage.", 
+        "Nobody likes surprises when it comes to pricing. We keep things simple and upfront, offering fair rates with no hidden fees. Whether you need a quick local tow or something long-distance, we’ll give you a clear price before we start.", 
         "Need accident recovery? Off-road recovery? Classic car transport? We do more than just standard tows. Whatever the situation, we have the right equipment and experience to get the job done right."
     ];
     const jumpStartTitles = ["Fast & Reliable Jump Starts", "Dead Battery? No Problem", "Anytime, Anywhere", "Safe for Your Vehicle"];
@@ -29,27 +29,26 @@ const Services = ({ loading }) => {
         "Our jump start service is safe for all vehicle types, ensuring no damage to your electrical system while bringing your car back to life."
     ];
 
-    const tireServiceTitles = ["Flat Tire? We Can Help", "Quick Puncture Repairs", "Spare Tire Installation", "Get Back on the Road Fast"];
+    const tireServiceTitles = ["Punctured Tire? We Can Help", "Quick Puncture Repairs", "Get Back on the Road Fast"];
     const tireServiceTexts = [
-        "A flat tire does not have to ruin your plans. Whether you need a repair or a spare tire fitted, we have got you covered.",
+        "A flat tire does not have to ruin your plans. Whether you need a puncture repair or a spare wheel fitted, we have got you covered.",
         "If you have a small puncture, we will fix it on the spot, getting you back on the road without needing a full tire replacement.",
-        "No spare? No problem. If a replacement is needed, we will install your spare tire so you can keep moving.",
-        "Fast and efficient tire assistance means you will not be stuck for long. We work quickly to get you back on your way."
+        "Fast and efficient assistance means you will not be stuck for long. We work quickly to get you back on your way."
     ];
 
-    const fuelDeliveryTitles = ["Out of Fuel?", "Wrong Fuel? We Can Fix It", "Quick & Easy Fuel Delivery", "Avoid Engine Damage"];
+    const fuelDeliveryTitles = ["Out of Fuel?", "Did You Use The Wrong Fuel? We Can Fix It", "Quick & Easy Fuel Delivery", "Avoid Engine Damage"];
     const fuelDeliveryTexts = [
         "Running out of fuel is frustrating, but we make it easy. We will bring you the fuel you need, so you do not have to walk to the nearest station.",
-        "Accidentally used the wrong fuel? We will safely remove it and prevent costly engine damage.",
+        "We will safely remove it and prevent costly engine damage.",
         "No need to stress if your tank runs empty. Our team will arrive fast with enough fuel to get you back on the road.",
         "Using the wrong fuel can cause major issues. Our professionals will drain it safely and refill your tank the right way."
     ];
 
-    const lockoutTitles = ["Locked Out? We Can Help", "Fast & Damage-Free Entry", "All Vehicle Types", "24/7 Assistance"];
+    const lockoutTitles = ["Locked Out? We Can Help", "Fast & Damage-Free Entry", "Most Vehicle Types", "24/7 Assistance"];
     const lockoutTexts = [
-        "Locked keys in your car? It happens, and we are here to help with fast and reliable vehicle lockout assistance.",
+        "Locked keys in your car? It happens, and we are here to help with fast and reliable lockout assistance.",
         "We use specialized tools to unlock your car without causing any damage, so you can get back in without worry.",
-        "No matter the make or model, our team can unlock your car safely and quickly.",
+        "We can provide a new key for most makes and models. We offer one year warranty on key replacements.",
         "Lockouts do not happen at convenient times. That is why we are available around the clock to assist you."
     ];
 
@@ -58,31 +57,29 @@ const Services = ({ loading }) => {
         "If your battery is completely dead, a jump start may not be enough. We provide on-the-spot battery replacements to get you moving again.",
         "We will bring a new battery and install it properly, ensuring everything is secure and working correctly.",
         "Why tow your car when a simple battery replacement can fix the problem? We bring the solution to you.",
-        "We supply high-quality, reliable batteries so you can count on your vehicle to start every time."
+        "We supply new, high-quality, reliable batteries so you can count on your vehicle to start every time."
     ];
 
     const diagnosticsTitles = ["Vehicle Not Starting?", "Check Engine Light On?", "Minor Repairs on the Spot", "Avoid Costly Breakdowns"];
     const diagnosticsTexts = [
-        "If your car is not starting, we will check common issues and get to the root of the problem.",
+        "If your car is not starting, we can check common issues and get to the root of the problem.",
         "A warning light on your dashboard can be worrying. We run basic diagnostics to help identify the issue quickly.",
         "Some problems do not require a tow. If possible, we will make minor repairs right there to get you back on the road.",
         "Catching small issues early can prevent bigger, expensive problems down the line. We help you stay ahead of major repairs."
     ];
 
-    const winchingTitles = ["Stuck in Mud or Snow?", "Off-Road Recovery", "Safe & Damage-Free Winching", "Heavy-Duty Equipment"];
+    const winchingTitles = ["Stuck in Mud or Snow?", "Off-Road Recovery", "Safe Winching", "Heavy-Duty Equipment"];
     const winchingTexts = [
         "If your vehicle is stuck in mud, snow, sand, or a ditch, we have the tools to pull you out safely.",
-        "From trails to tough terrain, we specialize in recovering vehicles that are stuck off-road.",
-        "Our winching process ensures your vehicle is pulled out carefully without causing damage.",
-        "With professional-grade equipment, we can handle anything from small cars to larger trucks in tough recovery situations."
+        "From trails to tough terrain, we have you covered.",
+        "Our winching process ensures your vehicle is pulled out carefully.",
+        "With professional-grade equipment, we can handle anything from small cars to medium-size vehicles in tough recovery situations."
     ];
 
-    const insuranceTitles = ["Insurance & Warranty Assistance", "Hassle-Free Service Calls", "We Work With Major Providers", "Get Covered Assistance"];
+    const insuranceTitles = ["Insurance & Warranty Assistance", "Hassle-Free Service Calls"];
     const insuranceTexts = [
         "If your insurance or warranty covers roadside assistance, we can handle the call for you.",
-        "No need to stress about paperwork or approvals. We streamline the process and get you the help you need.",
-        "We work with most major insurance companies and warranty providers to ensure fast and reliable service.",
-        "Covered under a plan? We will verify your coverage and provide the assistance you need without unnecessary delays."
+        "We work with major insurance companies and warranty providers to ensure fast and reliable service."
     ];
 
     const scrapCarTitles = ["Turn Your Scrap Car Into Cash", "We Buy Any Condition", "Fast & Hassle-Free", "Instant Offers"];
@@ -123,7 +120,7 @@ const Services = ({ loading }) => {
             case "fuel-delivery-and-wrong-fuel-removal":
                 return <Service service="Fuel Delivery & Wrong Fuel Removal" titles={fuelDeliveryTitles} texts={fuelDeliveryTexts} image={PlaceholderImg} />;
             case "lockout-assistance":
-                return <Service service="Lockout Assistance" titles={lockoutTitles} texts={lockoutTexts} image={PlaceholderImg} />;
+                return <Service service="Key Replacement & Lockout Assistance" titles={lockoutTitles} texts={lockoutTexts} image={PlaceholderImg} />;
             case "battery-replacement":
                 return <Service service="Battery Replacement" titles={batteryReplacementTitles} texts={batteryReplacementTexts} image={PlaceholderImg} />;
             case "diagnostics-and-repair":

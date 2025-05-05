@@ -89,7 +89,7 @@
 }
 
 .service-detail-title-s {
-    font-size: clamp(0.5rem, 3vw, 1.2rem);
+    font-size: clamp(0.5rem, 5vw, 1.3rem);
     font-weight: 700;
     color: #232323;
     margin-bottom: 0.5rem;

@@ -35,6 +35,9 @@ export default function Home({ loading }) {
     const [showSubText, setShowSubText] = useState(false);
     const headerRef = useRef(null);
     const heroGridRef = useRef(null);
+    const previousOrientation = useRef(getOrientation());
+    const previousInnerHeight = useRef(window.innerHeight);
+    const heightThreshold = 100;
 
     const waStyle = { background : "#fff"}
 
@@ -59,16 +62,54 @@ export default function Home({ loading }) {
         }
     }, [loadingSpinnerActive]);
     
+    useEffect(() => {
+        const screenHeight = window.innerHeight;
+        const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
+        const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
+        
+        const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
+
+        setHeroHeight(newHeight);
+
+
+    }, [])
 
     useEffect(() => {
         const updateHeight = () => {
+            const currentOrientation = getOrientation();
+            console.log("co:", currentOrientation);
+            const orientationChanged = currentOrientation !== previousOrientation.current;
+            console.log("oc:", orientationChanged);
+            const currentInnerHeight = window.innerHeight;
+
+            console.log("pi:", previousInnerHeight.current);
+            console.log("ci:", currentInnerHeight);
+            const heightSignificantlyChanged = Math.abs(currentInnerHeight - previousInnerHeight.current) > heightThreshold;
+            console.log("hsc:", heightSignificantlyChanged);
             
-            const screenHeight = window.innerHeight;
-            const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
-            const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
+            if ((currentOrientation === "landscape-primary" || currentOrientation === "landscape") && window.innerHeight < 600) {
+                setHeroHeight("100dvh");
+                previousOrientation.current = currentOrientation;
+                previousInnerHeight.current = currentInnerHeight;
+                return;
+            }
+            if (orientationChanged || (currentOrientation === previousOrientation.current && heightSignificantlyChanged) || previousOrientation.current === null) {
+                const screenHeight = window.innerHeight;
+                const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
+                const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
+                
+                const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
+
+                setHeroHeight(newHeight);
+                previousOrientation.current = currentOrientation;
+                previousInnerHeight.current = currentInnerHeight;
+
+                
+            }else {
+                console.log('Ignoring resize: likely address bar change');
+                
+            }
             
-            const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
-            setHeroHeight(newHeight);
         };
 
         updateHeight();
@@ -77,17 +118,16 @@ export default function Home({ loading }) {
         return () => window.removeEventListener("resize", updateHeight);
     }, []);
 
-    // useEffect(() => {
-    //     if (loadingComplete) {
-    //         setShowTitle1(true);
-    //         setTimeout(() => {
-    //             setShowTitle2(true);
-    //         }, 400);
-    //         setTimeout(() => {
-    //             setShowSubText(true);
-    //         }, 1200);
-    //     }
-    // }, [loadingComplete]);
+    function getOrientation() {
+        if (screen.orientation && screen.orientation.type) {
+          return screen.orientation.type; // e.g., "portrait-primary", "landscape-secondary"
+        } else {
+          // Fallback for older browsers or limited support
+          return window.innerHeight > window.innerWidth ? 'portrait' : 'landscape';
+        }
+      }
+
+
     function openWhatsApp() {
         window.open('https://wa.me/353871200000', '_blank');
     }
@@ -138,11 +178,7 @@ export default function Home({ loading }) {
                     <span className="what-we-offer-paragraph">We provide fast, courteous and inexpensive towing services in Dublin & Wicklow. We are fully insured and ready to respond to all your vehicle emergency needs 24 hours a day, seven days a week.</span>
                     <div className="what-we-offer-list">
                     <div className="color-seperator"></div>
-                        <div className="what-we-offer-list-item">
-                            <Check color="#FBB721" size={28}/>
-                            <span className="what-we-offer-list-item-title">More than <span className="bold">30 years of experience</span></span>
-                        </div>
-                        <hr className="what-we-offer-list-hr"/>
+                        
                         <div className="what-we-offer-list-item">
                             <Check color="#FBB721" size={28}/>
                             <span className="what-we-offer-list-item-title">Speedy arrival time of <span className="bold">less than 30 minutes</span></span>
@@ -197,7 +233,7 @@ export default function Home({ loading }) {
                     </div>
                     <div className="about-icons-grid-item">
                         <RiTeamLine color="#FBB721" size={64}/>
-                        <CountUp Class="about-icons-grid-item-title" targetNumber={6}></CountUp>
+                        <CountUp Class="about-icons-grid-item-title" targetNumber={4}></CountUp>
                         <span className="about-icons-grid-item-sub-title">Staff in Team</span>
                     </div>
                 </div>
@@ -242,7 +278,7 @@ export default function Home({ loading }) {
                     <HomeService
                     containerClass="lockout"
                     image={LockoutImage}
-                    title="Lockout Assistance"
+                    title="Key Replacement & Lockout Assistance"
                     description="Locked your keys inside your car or lost them? We offer safe, non-damaging vehicle entry for most makes and models, with emergency key cutting and programming available."
                     />
 

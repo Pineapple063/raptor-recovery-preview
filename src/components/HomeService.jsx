@@ -60,7 +60,7 @@ const HomeService = ({image, title, description, containerClass}) => {
                 return "/services/puncture-repair-and-spare-wheel-fitting";
             case "Fuel Delivery & Wrong Fuel Removal":
                 return "/services/fuel-delivery-and-wrong-fuel-removal";
-            case "Lockout Assistance":
+            case "Key Replacement & Lockout Assistance":
                 return "/services/lockout-assistance";
             case "Battery Replacement":
                 return "/services/battery-replacement";
