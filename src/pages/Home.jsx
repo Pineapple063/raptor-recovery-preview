@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef, useLayoutEffect } from "react";
 import { Siren, Handshake, Phone, Check } from 'lucide-react';
 import { IoIosStar } from "react-icons/io";
 import { GiTowTruck } from "react-icons/gi";
@@ -62,20 +62,29 @@ export default function Home({ loading }) {
         }
     }, [loadingSpinnerActive]);
     
-    useEffect(() => {
-        
-
-
-    }, [])
-
-    useEffect(() => {
+    // useLayoutEffect for initial height calculation after DOM mutations
+    useLayoutEffect(() => {
+        console.log('useLayoutEffect for initial height running.');
         const screenHeight = window.innerHeight;
         const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
         const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
-        
+
         const newHeight = `${screenHeight - (headerHeight + heroGridHeight)}px`;
 
         setHeroHeight(newHeight);
+        console.log('Initial height calculation performed in useLayoutEffect:', newHeight);
+
+        // Although the refs are initialized when the component runs,
+        // updating them here ensures they definitely hold the values
+        // captured after the initial layout for the subsequent event handling.
+        previousOrientation.current = getOrientation();
+        previousInnerHeight.current = window.innerHeight;
+        console.log('Refs initialized/updated in useLayoutEffect:', previousOrientation.current, previousInnerHeight.current);
+
+
+    }, []);
+
+    useEffect(() => {
         const updateHeight = () => {
             const currentOrientation = getOrientation();
             console.log("co:", currentOrientation);
