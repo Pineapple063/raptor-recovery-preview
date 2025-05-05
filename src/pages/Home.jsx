@@ -79,6 +79,26 @@ export default function Home({ loading }) {
         previousInnerHeight.current = window.innerHeight;
         console.log('Refs initialized/updated in useLayoutEffect:', previousOrientation.current, previousInnerHeight.current);
     }
+
+    useEffect(() => {
+        const handleViewportResize = () => {
+            updateHeightInitial();
+            console.log('Height updated from visualViewport resize');
+        };
+    
+        if (window.visualViewport) {
+            window.visualViewport.addEventListener('resize', handleViewportResize);
+        }
+    
+        // Initial run
+        updateHeightInitial();
+    
+        return () => {
+            if (window.visualViewport) {
+                window.visualViewport.removeEventListener('resize', handleViewportResize);
+            }
+        };
+    }, []);
     
     // useLayoutEffect for initial height calculation after DOM mutations
     useLayoutEffect(() => {
