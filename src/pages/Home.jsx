@@ -61,10 +61,8 @@ export default function Home({ loading }) {
             }, 1000);
         }
     }, [loadingSpinnerActive]);
-    
-    // useLayoutEffect for initial height calculation after DOM mutations
-    useLayoutEffect(() => {
-        console.log('useLayoutEffect for initial height running.');
+
+    const updateHeightInitial = () => {
         const screenHeight = window.innerHeight;
         const headerHeight = headerRef.current ? headerRef.current.offsetHeight : 0;
         const heroGridHeight = heroGridRef.current ? heroGridRef.current.offsetHeight : 0;
@@ -80,7 +78,21 @@ export default function Home({ loading }) {
         previousOrientation.current = getOrientation();
         previousInnerHeight.current = window.innerHeight;
         console.log('Refs initialized/updated in useLayoutEffect:', previousOrientation.current, previousInnerHeight.current);
+    }
+    
+    // useLayoutEffect for initial height calculation after DOM mutations
+    useLayoutEffect(() => {
+        console.log('useLayoutEffect for initial height running.');
+        
+        window.addEventListener('load', updateHeightInitial);
+        console.log('Added window.load event listener in useLayoutEffect.');
 
+
+        // Cleanup for window.load listener
+        return () => {
+            window.removeEventListener('load', updateHeightInitial);
+            console.log('Removed window.load event listener.');
+        };
 
     }, []);
 
