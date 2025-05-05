@@ -39,7 +39,7 @@ const Footer = () => {
                 <div className="footer-grid-item contact-info">
                     <p><span>Contact </span><span className="bold">Us</span></p>
                     <div className="contact-info-list">
-                        <div className='contact-info-item'><FaSquarePhone size={24}/><a href="tel:+353 1 234 5678">+353 1 234 5678</a></div>
+                        <div className='contact-info-item'><FaSquarePhone size={24}/><a href="tel:+353 87 120 0000">+353 87 120 0000</a></div>
                         <div className='contact-info-item'><MdEmail size={24}/><a href="mailto:contact@raptorrecovery.ie">contact@raptorrecovery.ie</a></div>
                     </div>
                 </div>
