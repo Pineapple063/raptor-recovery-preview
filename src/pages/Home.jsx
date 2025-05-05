@@ -82,17 +82,22 @@ export default function Home({ loading }) {
     
     // useLayoutEffect for initial height calculation after DOM mutations
     useLayoutEffect(() => {
-        console.log('useLayoutEffect for initial height running.');
-        
-        window.addEventListener('load', updateHeightInitial);
-        console.log('Added window.load event listener in useLayoutEffect.');
-
-
-        // Cleanup for window.load listener
-        return () => {
-            window.removeEventListener('load', updateHeightInitial);
-            console.log('Removed window.load event listener.');
+        let rafId;
+        let attempts = 0;
+    
+        const maxTries = 5;
+    
+        const tryUpdate = () => {
+            updateHeightInitial();
+            attempts++;
+            if (attempts < maxTries) {
+                rafId = requestAnimationFrame(tryUpdate);
+            }
         };
+    
+        rafId = requestAnimationFrame(tryUpdate);
+    
+        return () => cancelAnimationFrame(rafId);
 
     }, []);
 
