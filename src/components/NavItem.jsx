@@ -11,7 +11,7 @@ function NavDropdownItem(props) {
     
     const closeTimeoutRef = useRef(null);
     
-    
+    const onLinkClick = props.onLinkClick ;
 
     useEffect(() => {
         if (props.MenuOpen === false) {
@@ -47,6 +47,20 @@ function NavDropdownItem(props) {
         setIsParentHovered(false);
         setIsSubmenuHovered(false);
         }, 300); // Adjust delay as needed
+    };
+
+    const handleSubmenuItemClick = () => {
+        // 1. Close the dropdown's internal state
+        setIsParentHovered(false); // Close desktop hover state
+        setIsSubmenuHovered(false); // Close desktop hover state
+        setMenuOpen(false); // Close mobile click state
+        cancelClose(); // Clear any scheduled desktop close just in case
+
+        // 2. Call the function passed from the parent to close the main menu
+        if (onLinkClick) {
+            onLinkClick();
+        }
+        // The Link component handles the actual navigation
     };
 
     return (
@@ -103,7 +117,7 @@ function NavDropdownItem(props) {
                 <ChevronLeft className="chevron-left" onClick={(e) => {e.stopPropagation();setMenuOpen(false)}}/>
                 {props.Items.map((item, index) => (
                     <li className="nav-submenu-item" key={index}>
-                        <Link className="nav-submenu-link" asp-area="" to={`/services/${item.replace(/\s+/g, "-").replace("&", "and").toLowerCase()}`}>{item}</Link>
+                        <Link className="nav-submenu-link" asp-area="" to={`/services/${item.replace(/\s+/g, "-").replace("&", "and").toLowerCase()}`} onClick={handleSubmenuItemClick}>{item}</Link>
                     </li>
                 ))}
                 </ul>

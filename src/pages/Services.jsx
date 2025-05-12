@@ -4,6 +4,17 @@ import '../css/Services.css'
 import PlaceholderImg from "../assets/placeholder.png"
 import ServiceSlide from "../components/ServiceSlide";
 import Service from "../components/Service";
+import TowingImage from "../assets/towing.png";
+import LockoutImage from "../assets/lockout.png";
+import BatteryReplacementImage from "../assets/battery_replacement.png";
+import BuyCarsImage from "../assets/buy_cars.png";
+import DiagnosticsImage from "../assets/diagnostics.png";
+import FuelImage from "../assets/fuel.png";
+import InsuranceImage from "../assets/insurance.png";
+import JumpStartImage from "../assets/jump_start.png";
+import PunctureImage from "../assets/puncture_repair.png";
+import WinchingImage from "../assets/winching.png";
+import WindscreenImage from "../assets/windscreen_replacement.png";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 
@@ -90,6 +101,20 @@ const Services = ({ loading }) => {
         "Get an instant offer and fast payment for your unwanted vehicle. No waiting, no hassle."
     ];
 
+    const windscreenTitles = [
+    "Cracked Windscreen? Get It Fixed Now",
+    "Convenient Mobile Service",
+    "Fast & Safe Replacement",
+    "Quality Glass & Expert Fitting"
+    ];
+
+    const windscreenTexts = [
+        "Don't let a small chip turn into a major problem. Ignoring windscreen damage compromises your safety and visibility. Get it professionally addressed before it spreads further.",
+        "Skip the trip to a repair shop. Our mobile technicians come directly to your location – whether you're at home, work, or elsewhere – to perform the replacement on-site.",
+        "We understand you need to get back on the road. Our team works quickly and efficiently to replace your windscreen safely, ensuring minimal disruption to your day while restoring the structural integrity of your vehicle.",
+        "Your safety is our priority. We use high-quality replacement glass that meets safety standards, installed with precision by our experienced and certified technicians for a perfect, secure fit."
+    ];
+
     useEffect(() => {
         if (serviceType !== currentService) {
           setFade(true);
@@ -112,27 +137,31 @@ const Services = ({ loading }) => {
     const renderService = () => {
         switch (displayService) {
             case "towing":
-                return <Service service="Towing" titles={towingTitles} texts={towingTexts} image={PlaceholderImg} />;
+                return <Service service="Towing" titles={towingTitles} texts={towingTexts} image={TowingImage} />;
             case "jump-start-service":
-                return <Service service="Jump Start Service" titles={jumpStartTitles} texts={jumpStartTexts} image={PlaceholderImg} />;
+                return <Service service="Jump Start Service" titles={jumpStartTitles} texts={jumpStartTexts} image={JumpStartImage} />;
             case "puncture-repair-and-spare-wheel-fitting":
-                return <Service service="Puncture Repair & Spare Wheel Fitting" titles={tireServiceTitles} texts={tireServiceTexts} image={PlaceholderImg} />;
+                return <Service service="Puncture Repair & Spare Wheel Fitting" titles={tireServiceTitles} texts={tireServiceTexts} image={PunctureImage} />;
             case "fuel-delivery-and-wrong-fuel-removal":
-                return <Service service="Fuel Delivery & Wrong Fuel Removal" titles={fuelDeliveryTitles} texts={fuelDeliveryTexts} image={PlaceholderImg} />;
+                return <Service service="Fuel Delivery & Wrong Fuel Removal" titles={fuelDeliveryTitles} texts={fuelDeliveryTexts} image={FuelImage} />;
             case "lockout-assistance":
-                return <Service service="Key Replacement & Lockout Assistance" titles={lockoutTitles} texts={lockoutTexts} image={PlaceholderImg} />;
+                return <Service service="Key Replacement & Lockout Assistance" titles={lockoutTitles} texts={lockoutTexts} image={LockoutImage} />;
             case "battery-replacement":
-                return <Service service="Battery Replacement" titles={batteryReplacementTitles} texts={batteryReplacementTexts} image={PlaceholderImg} />;
+                return <Service service="Battery Replacement" titles={batteryReplacementTitles} texts={batteryReplacementTexts} image={BatteryReplacementImage} />;
             case "diagnostics-and-repair":
-                return <Service service="Diagnostics & Repair" titles={diagnosticsTitles} texts={diagnosticsTexts} image={PlaceholderImg} />;
+                return <Service service="Diagnostics & Repair" titles={diagnosticsTitles} texts={diagnosticsTexts} image={DiagnosticsImage} />;
             case "winching":
-                return <Service service="Winching" titles={winchingTitles} texts={winchingTexts} image={PlaceholderImg} />;
+                return <Service service="Winching" titles={winchingTitles} texts={winchingTexts} image={WinchingImage} />;
+            case "windscreen-replacement":
+                return <Service service="Windscreen Replacement" titles={windscreenTitles} texts={windscreenTexts} image={WindscreenImage} />;
+            
             case "insurance-and-warranty-assistance":
-                return <Service service="Insurance & Warranty Assistance" titles={insuranceTitles} texts={insuranceTexts} image={PlaceholderImg} />;
+                return <Service service="Insurance & Warranty Assistance" titles={insuranceTitles} texts={insuranceTexts} image={InsuranceImage} />;
             case "scrap-car-buying":
-                return <Service service="Scrap Car Buying" titles={scrapCarTitles} texts={scrapCarTexts} image={PlaceholderImg} />;
+                return <Service service="Scrap Car Buying" titles={scrapCarTitles} texts={scrapCarTexts} image={ScrapCarImage} />;
+            
             default:
-                return <Service service="Towing" titles={towingTitles} texts={towingTexts} image={PlaceholderImg} />;
+                return <Service service="Towing" titles={towingTitles} texts={towingTexts} image={TowingImage} />;
         }
     };
 
@@ -143,7 +172,8 @@ const Services = ({ loading }) => {
             
             <div className="services-container-s">
                 <div className="services-header-s">
-                    SERVICES
+                    <p className="glitch-word services" data-text="SERVICES">SERVICES</p>
+                    
                 </div>
                 <div className={`services-content-s ${fade ? 'fade-out' : 'fade-in'}`}>
                     {renderService()}

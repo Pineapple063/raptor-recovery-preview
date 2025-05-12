@@ -50,6 +50,10 @@ function Header() {
         
     };
 
+    const closeMenu = () => {
+        setMenuOpen(false);
+    };
+
 
 
     return(
@@ -68,9 +72,7 @@ function Header() {
                     <div onClick={toggleMenu} className={`navbar-menu-overlay ${menuOpen ? 'show' : ''}`}></div>
                     <div className={`navbar-menu ${menuOpen ? 'show' : ''}`} style={!isDesktop ? {height: `${menuHeight+32}px`} : {}}>
                         <ul className={`navbar-nav flex-grow-1 ${menuOpen ? 'show' : ''}`}>
-                            <NavDropdownItem MenuOpen={menuOpen} Name="Services" Items={["Towing", "Jump Start Service", "Puncture Repair & Spare Wheel Fitting", "Fuel Delivery & Wrong Fuel Removal", "Lockout Assistance", "Battery Replacement", "Diagnostics & Repair", "Winching", "Insurance & Warranty Assistance", "Scrap Car Buying"]}/>
-                            <NavItem Name="Areas Served"/>
-                            <NavItem Name="Pricing"/>
+                            <NavDropdownItem MenuOpen={menuOpen} onLinkClick={closeMenu} Name="Services" Items={["Towing", "Jump Start Service", "Puncture Repair & Spare Wheel Fitting", "Fuel Delivery & Wrong Fuel Removal", "Lockout Assistance", "Battery Replacement", "Diagnostics & Repair", "Winching", "Windscreen Replacement", "Insurance & Warranty Assistance", "Scrap Car Buying"]}/>
                             <NavItem Name="Contact Us"/>
                             <NavItem Name="FAQs"/>
                             <NavItem Name="About Us"/>

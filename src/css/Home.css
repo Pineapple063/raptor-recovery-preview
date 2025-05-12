@@ -472,10 +472,13 @@
     .our-services-grid {
         display: grid;
         grid-template-columns: 1fr;
-        grid-template-rows: repeat(10, 1fr);
+        grid-template-rows: repeat(10, auto);
         margin-top: 2rem;
         padding-inline: 0;
+        gap: 2rem;
     }
+
+
 
     .our-services-grid > :last-child {
         grid-column: auto; /* Places it in the center column */
@@ -483,7 +486,7 @@
     }
 
     .service-image-container {
-        width: 150px;
+        width: auto;
         height: 100px;
     }
 

@@ -1,3 +1,12 @@
+@font-face {
+    font-family: 'articoblack_italic';
+    src: url('fonts/artico_black_italic.woff2') format('woff2'),
+         url('fonts/artico_black_italic.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 .color-seperator-s {
     width: 80%;
     display: flex;
@@ -38,10 +47,81 @@
     align-items: center;
     height: 200px;
     background-color: #FBB721;
-    font-size: clamp(1.5rem, 7vw, 3rem);
-    font-weight: 700;
+    font-size: clamp(1.5rem, 14vw, 3rem);
+    font-weight: 900;
     color: #000;
     margin-bottom: 2rem;
+    font-family: 'articoblack_italic', sans-serif;
+    font-style: italic;
+    width: 100%;
+}
+
+.glitch-word {
+    position: relative;
+    display: inline-block; /* Allows words to stack vertically if needed, wraps content */
+    font-size: clamp(1.5rem, 14vw, 5rem); /* Adjust size as needed */
+    line-height: 1; /* Crucial for clip-path % to work relative to text height */
+    margin: 0; /* Remove default margin */
+    padding: 0; /* Remove default padding */
+    /* Hide the original text content if you only use pseudo-elements */
+    /* If using the element itself as one layer, set its color here */
+    color: transparent; /* Hide the base element's text */
+    width: 100%;
+    text-align: center;
+    margin-inline: auto;
+}
+
+/* Define colors using CSS variables for easier management */
+.glitch-word.services {
+    --glitch-color: #000; 
+    margin-bottom: 0px; 
+}
+
+.glitch-word.recovery {
+    --glitch-color: #1A2E5A; /* Dark Blue */
+}
+
+
+.glitch-word::before,
+.glitch-word::after {
+    content: attr(data-text); /* Get text from data-text attribute */
+    position: absolute;
+    top: 0;
+    left: 0;
+    color: var(--glitch-color); /* Use the defined color variable */
+    /* Ensure pseudo-elements inherit font properties */
+    font-size: inherit;
+    font-weight: inherit;
+    line-height: inherit;
+    font-family: inherit;
+    width: 100%;
+    /* Optional: Add slight noise/roughness */
+    /* text-shadow: -1px -1px 0 currentColor, 1px 1px 0 currentColor; */
+}
+
+.glitch-word::before {
+    /* This will be the top, shifted part */
+    /* clip-path: inset(top right bottom left) */
+    /* Clip from the bottom up, leaving the top part */
+    /* Adjust the percentage (e.g., 55%) to control the split line height */
+    clip-path: inset(0 0 50% 0);
+    transform: translateX(-2px); /* Shift the top part right */
+    z-index: 2; /* Ensure it's above the bottom part */
+    width: 100%;
+
+    /* Optional: Add subtle text shadows for jagged edges */
+    /* text-shadow: -2px 2px 0 currentColor, 2px 2px 0 currentColor; */
+}
+
+.glitch-word::after {
+    /* This will be the bottom part */
+    /* Clip from the top down, leaving the bottom part */
+    clip-path: inset(50% 0 0 0);
+    /* No transform needed for the base/bottom part relative to its position */
+    z-index: 1; /* Ensure it's below the top part */
+    width: 100%;
+    /* Optional: Add subtle text shadows for jagged edges */
+    /* text-shadow: -2px -2px 0 currentColor, 2px -2px 0 currentColor; */
 }
 
 .service-container-grid {
@@ -78,14 +158,19 @@
     max-width: 500px;
     object-fit: contain;
     object-position: center;
+    max-height: 50vh;
+
 }
 
 .service-title-s {
-    font-size: clamp(1.5rem, 7vw, 3rem);
-    font-weight: 600;
+    font-size: clamp(1.5rem, 10vw, 3rem);
+    font-family: 'articoblack_italic', sans-serif;
+    font-weight: 900;
+    font-style: italic;
     margin-bottom: 2rem;
-    color: #232323;
-    text-align: center;
+    color: #000;
+    text-align: left;
+    
 }
 
 .service-detail-title-s {
@@ -106,10 +191,19 @@
     }
 
     .service-image-container-s img {
-        width: 50vw;
+
         
         height: 100%;
         object-fit: contain;
         object-position: center;
+        max-height: 30vh;
+        min-height: 20vh;
     }
+
+    .service-title-s {
+        
+        text-align: center;
+    
+    }
+
 }

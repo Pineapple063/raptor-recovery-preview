@@ -68,6 +68,8 @@ const HomeService = ({image, title, description, containerClass}) => {
                 return "/services/diagnostics-and-repair";
             case "Winching & Off-Road Recovery":
                 return "/services/winching";
+            case "Windscreen Replacement":
+                return "/services/windscreen-replacement";
             case "Insurance & Warranty Assistance":
                 return "/services/insurance-and-warranty-assistance";
             case "We Buy Scrap Cars for Cash":

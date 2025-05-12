@@ -25,6 +25,7 @@ import InsuranceImage from "../assets/insurance.png";
 import JumpStartImage from "../assets/jump_start.png";
 import PunctureImage from "../assets/puncture_repair.png";
 import WinchingImage from "../assets/winching.png";
+import WindscreenImage from "../assets/windscreen_replacement.png";
 
 export default function Home({ loading }) {
     const [heroHeight, setHeroHeight] = useState("100dvh");
@@ -351,6 +352,14 @@ export default function Home({ loading }) {
                     />
 
                     <HomeService
+                    containerClass="windscreen-replacement"
+                    image={WindscreenImage}
+                    title="Windscreen Replacement"
+                    description="Cracked or chipped windscreen? Don’t wait – a small chip can quickly spread into a large crack, compromising your safety and visibility. Our skilled technicians offer convenient mobile windscreen replacement services using high-quality glass. We provide fast, professional fitting right where you are, restoring your clear view and getting you back on the road safely and efficiently."
+                    />
+
+
+                    <HomeService
                     containerClass="insurance"
                     image={InsuranceImage}
                     title="Insurance & Warranty Call Outs"
@@ -363,6 +372,8 @@ export default function Home({ loading }) {
                     title="We Buy Scrap Cars for Cash"
                     description="We offer competitive cash payouts for non-running or damaged vehicles. Our hassle-free service includes free towing, so you don’t have to worry about a thing."
                     />
+
+                    
                 </div>
             </div>
             <div className="whatsapp-booking-container">
