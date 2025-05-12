@@ -38,7 +38,7 @@ export default function Home({ loading }) {
     const heroGridRef = useRef(null);
     const previousOrientation = useRef(getOrientation());
     const previousInnerHeight = useRef(window.innerHeight);
-    const heightThreshold = 100;
+    const heightThreshold = 150;
 
     const waStyle = { background : "#fff"}
 
